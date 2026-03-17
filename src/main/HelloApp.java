@@ -1,26 +1,24 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-        String greeting;
-
-        // Check if arguments are provided
-        if (args.length > 0) {
-
-            // Optional: loop through args (as required)
-            for (int i = 0; i < args.length; i++) {
-                // You could process/validate each name here if needed
-                // For now, we just iterate as per requirement
-            }
-
-            // Join all names into one string
-            String names = String.join(" ", args);
-
-            greeting = "Hello, " + names + "!";
-        } else {
-            greeting = "Hello, Guest!";
+        // Check for no arguments
+        if (args.length == 0) {
+            System.out.println("Hello, Guest!");
+            return;
         }
 
-        // Print single greeting
-        System.out.println(greeting);
+        // Use StringBuilder for efficient string construction
+        StringBuilder names = new StringBuilder();
+
+        // Iterate using enhanced for-loop
+        for (String name : args) {
+            if (names.length() > 0) {
+                names.append(", "); // add delimiter only after first element
+            }
+            names.append(name);
+        }
+
+        // Single greeting with all names
+        System.out.println("Hello, " + names.toString() + "!");
     }
 }
