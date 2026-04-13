@@ -3,6 +3,7 @@ public class HelloApp {
         // Check if no arguments are passed
         if (args.length == 0) {
             System.out.println("Hello, Guest!");
+        
             return;
         }
 
